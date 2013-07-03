@@ -1,0 +1,27 @@
+<h1>Listing vote_disagrees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vote_disagrees.each do |vote_disagree| %>
+      <tr>
+        <td><%= vote_disagree.user %></td>
+        <td><%= link_to 'Show', vote_disagree %></td>
+        <td><%= link_to 'Edit', edit_vote_disagree_path(vote_disagree) %></td>
+        <td><%= link_to 'Destroy', vote_disagree, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disagree', new_vote_disagree_path %>

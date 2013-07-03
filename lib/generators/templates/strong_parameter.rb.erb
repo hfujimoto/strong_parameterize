@@ -1,0 +1,8 @@
+
+  module StrongParameters
+    private
+    def <%= params_method_name %>
+      params.require(:<%= singular_name %>).permit(<%= permitted_attributes.collect {|param| ":#{param}"}.join(', ') %>)
+    end
+  end
+  include StrongParameters

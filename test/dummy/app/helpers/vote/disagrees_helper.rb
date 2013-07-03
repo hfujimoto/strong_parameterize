@@ -1,0 +1,2 @@
+module Vote::DisagreesHelper
+end

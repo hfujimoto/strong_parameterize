@@ -1,0 +1,21 @@
+<%= form_for(@vote_agree) do |f| %>
+  <% if @vote_agree.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vote_agree.errors.count, "error") %> prohibited this vote_agree from being saved:</h2>
+
+      <ul>
+      <% @vote_agree.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

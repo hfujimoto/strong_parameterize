@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vote_disagree.user %>
+</p>
+
+<%= link_to 'Edit', edit_vote_disagree_path(@vote_disagree) %> |
+<%= link_to 'Back', vote_disagrees_path %>
