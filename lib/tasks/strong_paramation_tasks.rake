@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :strong_parameters_from_accessibility do
+# task :strong_paramation do
 #   # Task goes here
 # end

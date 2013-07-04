@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Declare your gem's dependencies in strong_parameters_from_accessibility.gemspec.
+# Declare your gem's dependencies in strong_paramation.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec

@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "strong_parameters_from_accessibility/version"
+require "strong_paramation/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "strong_parameters_from_accessibility"
-  s.version     = StrongParametersFromAccessibility::VERSION
+  s.name        = "strong_paramation"
+  s.version     = StrongParamation::VERSION
   s.authors     = ["AOKI Yuuto"]
   s.email       = ["aoki@u-ne.co"]
   s.homepage    = ""

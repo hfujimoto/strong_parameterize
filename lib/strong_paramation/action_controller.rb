@@ -1,4 +1,4 @@
-module StrongParametersFromAccessibility
+module StrongParamation
   module ActionController
     def self.controllers
       controller_sources.each {|source| require source }

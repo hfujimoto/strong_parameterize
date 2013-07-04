@@ -1,4 +1,4 @@
-module StrongParametersFromAccessibility
+module StrongParamation
   module ActiveRecord
     module Replacement
       def attr_accessible(*args)

@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "strong_parameters_from_accessibility"
+require "strong_paramation"
 
 module Dummy
   class Application < Rails::Application

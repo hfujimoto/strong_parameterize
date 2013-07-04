@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    strong_parameters_from_accessibility (0.0.1)
+    strong_paramation (0.0.1)
       rails (~> 4.0.0)
 
 GEM
@@ -95,4 +95,4 @@ PLATFORMS
 DEPENDENCIES
   pry-rails
   sqlite3
-  strong_parameters_from_accessibility!
+  strong_paramation!

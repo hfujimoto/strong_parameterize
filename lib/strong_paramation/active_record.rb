@@ -1,4 +1,4 @@
-module StrongParametersFromAccessibility
+module StrongParamation
   module ActiveRecord
     def self.models
       model_sources.each {|source| require source }

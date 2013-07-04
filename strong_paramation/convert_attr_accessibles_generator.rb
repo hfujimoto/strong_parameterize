@@ -1,11 +1,11 @@
-module StrongParametersFromAccessibility
+module StrongParamation
   module Generators
     class ConvertAttrAccessiblesGenerator < ::Rails::Generators::NamedBase
       desc 'convert attr_accessible to strong_parameters'
       source_root File.expand_path("../../templates", __FILE__)
 
       def setup
-        StrongParametersFromAccessibility.generator_setup!
+        StrongParamation.generator_setup!
       end
 
       def attr_attributes_comment_out
