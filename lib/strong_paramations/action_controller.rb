@@ -1,4 +1,4 @@
-module StrongParamation
+module StrongParamations
   module ActionController
     def self.controllers
       controller_sources.each {|source| require source }

@@ -1,4 +1,4 @@
-module StrongParamation
+module StrongParamations
   module ActiveRecord
     def self.models
       model_sources.each {|source| require source }

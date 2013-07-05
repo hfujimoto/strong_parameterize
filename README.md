@@ -1,14 +1,14 @@
-# Strong Paramation
+# Strong Paramations
 
-**Strong Paramation** gives your Rails app generator to convert all
+**Strong Paramations** gives your Rails app generator to convert all
 attr_accessible to [strong_parameters](https://github.com/rails/strong_parameters)
 
 ## Getting Started
 
-### Enabling the rake tasks
+### Enabling the generators
 
-Add `gem "strong_paramations"` to the development group in your `Gemfile`. You can
-do this by adding the line
+Add `gem "strong_paramations"` to the development group in your `Gemfile`.  
+You can do this by adding the line
 
     `gem "strong_paramations", :group => :development`
     
@@ -24,11 +24,11 @@ _or_ if you prefer the block syntax
 
 convert all models:
 
-    rails generate strong_paramation:convert_attr_accessibles:all
+    rails generate strong_paramations:convert_attr_accessibles:all
 
 _or_ specify the model name:
 
-    rails generate strong_paramation:convert_attr_accessibles user
+    rails generate strong_paramations:convert_attr_accessibles user
 
 such as the following result:
 
@@ -36,9 +36,9 @@ such as the following result:
 --- a/MY_AWESOME_APP/app/controllers/users_controller.rb
 +++ b/MY_AWESOME_APP/app/controllers/users_controller.rb
 @@ -55,4 +55,12 @@ class UsersController < ApplicationController
-     def user_params
-       params.require(:user).permit(:name, :age)
+       format.json { head :ok }
      end
+   end
 +
 +  module StrongParameters
 +    private
@@ -61,4 +61,4 @@ index 0878e9e..c6afd7f 100644
 
 ## License
 
-Copyright (c) AOKI Yuuto and [contributors](https://github.com/dhl/erb2haml/contributors). See LICENSE for further details.
+Copyright (c) AOKI Yuuto and [contributors](https://github.com/wneko/strong_paramations/contributors). See LICENSE for further details.
