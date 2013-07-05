@@ -4,13 +4,7 @@ module StrongParamations
       desc 'convert attr_accessible to strong_parameters'
       source_root File.expand_path("../../templates", __FILE__)
 
-      STATUS_LABELS = {
-        discard_attr_accessibles: 'discard_attr_accessibles',
-                strong_parameter: '        strong_parameter',
-                   impossibility: '           impossibility',
-                            skip: '                    skip',
-                           blank: '                        ',
-      }.freeze
+      STATUS_PADDING = 25
 
       ATTR_ACCESSIBLE_WORD_MATCHER = /\battr_accessible\b/
       ATTR_ACCESSIBLE_LINE_MATCHER = /^(\s+)attr_accessible\s*(?:(?::\w+),\s*)*:\w+\s*$\n/
@@ -35,11 +29,11 @@ module StrongParamations
       def check_class_definitions!
         case
         when model_class.nil?
-          say_status status(:skip), "#{model_path} (model is missing)"
+          status :skip, :blue, "#{model_path} (model is missing)"
         when ! model_class.ancestors.include?(::ActiveRecord::Base)
-          say_status status(:skip), "#{class_name} (model is not a subclass of ActiveRecord::Base)"
+          status :skip, :blue, "#{class_name} (model is not a subclass of ActiveRecord::Base)"
         when permitted_attributes.nil?
-          say_status status(:skip), "#{class_name} (attr_accessible is not found in the model)" 
+          status :skip, :blue, "#{class_name} (attr_accessible is not found in the model)" 
         else
           return true
         end
@@ -48,15 +42,15 @@ module StrongParamations
 
       def discard_attr_accessibles!
         if model_content =~ ATTR_ACCESSIBLE_WORD_MATCHER
-          say_status status(:discard_attr_accessibles), model_path
+          status :discard_attr_accessibles, :green, model_path
           if model_content =~ ATTR_ACCESSIBLE_LINE_MATCHER
             gsub_file model_path, ATTR_ACCESSIBLE_LINE_MATCHER, '', verbose: false
           else
-            say_status status(:impossibility), "#{model_path} (you need rewrite manually below lines)"
+            status :impossibility, :red, "#{model_path} (you need rewrite manually below lines)"
             show_model_possible_lines
           end
         else
-          say_status status(:skip), "#{class_name} (attr_accessible is not found in the model)" 
+          status :skip, :blue, "#{class_name} (attr_accessible is not found in the model)" 
         end
       end
 
@@ -64,7 +58,7 @@ module StrongParamations
         return unless controller_exists?
 
         template = find_in_source_paths(TEMPLATE_PATH)
-        say_status status(:strong_parameter), controller_path
+        status :strong_parameter, :green, controller_path
         insert_into_file(controller_path, before: /^end\b/, verbose: false) do
           ERB.new(::File.read(template), nil, '-').result(binding)
         end
@@ -119,8 +113,10 @@ module StrongParamations
         model_class.permitted_attributes
       end
 
-      def status(key)
-        STATUS_LABELS[key]
+      def status(label, label_color = :green, text = '')
+        label = label.to_s.chomp.rjust(STATUS_PADDING)
+        say label, [:bold, label_color], false
+        say (" " * 2) + text, :white
       end
 
       def show_model_possible_lines
@@ -133,7 +129,7 @@ module StrongParamations
                            nil
                          end
           if last_matches && last_matches + SHOW_POSSIBLE_LINES_COUNT > number
-            say_status status(:blank), "#{number}: #{line}"
+            status '', :white, "#{number}: #{line}"
           end
         end
       end
