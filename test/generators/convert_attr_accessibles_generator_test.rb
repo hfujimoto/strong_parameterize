@@ -44,11 +44,6 @@ class ConvertAttrAccessiblesTest < Rails::Generators::TestCase
     assert_file "app/controllers/vote/agrees_controller.rb", /\bdef vote_agree_params\b/
   end
 
-  test "skip for unbalanced model" do
-    run_generator %w(role)
-    assert_file "app/models/role.rb", /^\s+attr_accessible\b/
-  end
-
   test "skip for unbalanced controller" do
     run_generator %w(dashboard)
     assert_file "app/controllers/dashboard_controller.rb" do |controller|
@@ -74,5 +69,11 @@ class ConvertAttrAccessiblesTest < Rails::Generators::TestCase
     assert_nothing_raised do
       load "#{destination_root}/app/models/user.rb"
     end
+  end
+
+  test "skip impossible conversion" do
+    stdout = run_generator %w(diary)
+    assert_match /\bimpossibility\b/, stdout
+    assert_match /\battr_accessible\b/, stdout
   end
 end
