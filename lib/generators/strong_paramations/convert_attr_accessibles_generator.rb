@@ -41,7 +41,7 @@ module StrongParamations
 
       def discard_attr_accessibles!
         say_status status(:discard_attr_accessibles), model_path
-        gsub_file model_path, /^(\s+)attr_accessible\b/, '\1# attr_accessible', verbose: false
+        gsub_file model_path, /^(\s+)attr_accessible\b.+$\n/, '', verbose: false
       end
 
       TEMPLATE = 'strong_parameter.rb.erb'.freeze

@@ -18,14 +18,18 @@ class ConvertAttrAccessiblesTest < Rails::Generators::TestCase
     load "#{destination_root}/config/application.rb"
   end
 
-  test "comment out attr_accessor for simple model" do
+  test "discard attr_accessor for simple model" do
     run_generator %w(user)
-    assert_file "app/models/user.rb", /# attr_accessible/
+    assert_file "app/models/user.rb" do |model|
+      assert_no_match /^\s+attr_accessible\b/, model
+    end
   end
 
-  test "comment out attr_accessor for namespaced model" do
+  test "discard attr_accessor for namespaced model" do
     run_generator %w(vote/agree)
-    assert_file "app/models/vote/agree.rb", /# attr_accessible\b/
+    assert_file "app/models/vote/agree.rb" do |model|
+      assert_no_match /^\s+attr_accessible\b/, model
+    end
   end
 
   test "insert strong parameters module into controller for simple model" do
