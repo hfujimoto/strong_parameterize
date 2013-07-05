@@ -15,3 +15,4 @@ gemspec
 
 gem 'pry-rails'
 gem 'turn'
+gem 'guard-minitest'

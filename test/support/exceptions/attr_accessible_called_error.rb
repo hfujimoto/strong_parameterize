@@ -1,0 +1,1 @@
+class AttrAccessibleCalledError < StandardError; end
