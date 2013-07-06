@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    strong_paramations (0.0.1)
+    strong_parameterize (0.0.1)
       rails (~> 4.0.0)
 
 GEM
@@ -119,5 +119,5 @@ DEPENDENCIES
   guard-minitest
   pry-rails
   sqlite3
-  strong_paramations!
+  strong_parameterize!
   turn

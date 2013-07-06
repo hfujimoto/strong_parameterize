@@ -1,4 +1,4 @@
-module StrongParamations
+module StrongParameterize
   module Generators
     class ConvertAttrAccessiblesGenerator < ::Rails::Generators::NamedBase
       desc 'convert attr_accessible to strong_parameters'
@@ -22,7 +22,7 @@ module StrongParamations
 
       private
       def setup!
-        StrongParamations.generator_setup!
+        StrongParameterize.generator_setup!
         check_class_definitions!
       end
 

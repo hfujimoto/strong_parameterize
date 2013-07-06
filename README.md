@@ -1,22 +1,22 @@
-# Strong Paramations
+# Strong Parameterize
 
-**Strong Paramations** gives your Rails app generator to convert all
+**Strong Parameterize** gives your Rails app generator to convert all
 attr_accessible to [strong_parameters](https://github.com/rails/strong_parameters)
 
 ## Getting Started
 
 ### Enabling the generators
 
-Add `gem "strong_paramations"` to the development group in your `Gemfile`.  
+Add `gem "strong_parameterize"` to the development group in your `Gemfile`.  
 You can do this by adding the line
 
-    `gem "strong_paramations", :group => :development`
+    `gem "strong_parameterize", :group => :development`
     
 _or_ if you prefer the block syntax
 
     group :development do 
       # ... 
-      gem "strong_paramations"            # Add this line 
+      gem "strong_parameterize"            # Add this line 
       # ... 
     end
 
@@ -24,11 +24,11 @@ _or_ if you prefer the block syntax
 
 convert all models:
 
-    rails generate strong_paramations:convert_attr_accessibles:all
+    rails generate strong_parameterize:convert_attr_accessibles:all
 
 _or_ specify the model name:
 
-    rails generate strong_paramations:convert_attr_accessibles user
+    rails generate strong_parameterize:convert_attr_accessibles user
 
 such as the following result:
 
@@ -61,4 +61,4 @@ index 0878e9e..c6afd7f 100644
 
 ## License
 
-Copyright (c) AOKI Yuuto and [contributors](https://github.com/wneko/strong_paramations/contributors). See LICENSE for further details.
+Copyright (c) AOKI Yuuto and [contributors](https://github.com/wneko/strong_parameterize/contributors). See LICENSE for further details.

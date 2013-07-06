@@ -1,9 +1,9 @@
 require 'test_helper'
 
-require "generators/strong_paramations/convert_attr_accessibles_generator"
+require "generators/strong_parameterize/convert_attr_accessibles_generator"
 
 class ConvertAttrAccessiblesTest < Rails::Generators::TestCase
-  tests StrongParamations::Generators::ConvertAttrAccessiblesGenerator
+  tests StrongParameterize::Generators::ConvertAttrAccessiblesGenerator
   destination File.expand_path("../../tmp", __FILE__)
 
   module AttrAccessibleDeprecating
