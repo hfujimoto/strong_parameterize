@@ -2,4 +2,4 @@
     def build_resource_params
       [params.fetch(:<%= singular_name %>, {}).permit(<%= permitted_attributes.collect {|param| ":#{param}"}.join(', ') %>)]
     end
-  end
+
